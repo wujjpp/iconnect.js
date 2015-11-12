@@ -1,0 +1,137 @@
+<div class="col-md-12">
+
+  <portlet class="bordered light">
+    <portlet-title>
+      <div portlet-caption class="font-green-sharp">
+        <i class="icon-settings font-green-sharp"></i>
+        <span class="caption-subject bold uppercase">Form Validation</span>
+        <span class="caption-helper ng-scope">How to do form validation</span>
+      </div>
+    </portlet-title>
+    <portlet-body>
+      <form name="customerForm" class="horizontal-form">
+        <form-body>
+
+          <div class="row">
+            <div class="col-md-6">
+              <form-group>
+                <label class="control-label">First Name:</label>
+                <input type="text" class="form-control" ng-model="customer.firstName"
+                       uib-tooltip="validator = [ required ]"
+                       validator="[required]" validator-group="v1">
+              </form-group>
+            </div>
+            <div class="col-md-6">
+              <form-group>
+                <label class="control-label">Last Name:</label>
+                <input type="text" class="form-control" ng-model="customer.lastName"
+                       uib-tooltip="validator = [ required ]"
+                       validator="[required]" validator-group="v1">
+              </form-group>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <form-group>
+                <label class="control-label">Birth:</label>
+
+                <datepicker2
+                     ng-model="customer.birth"
+                     datepicker-options="defaultOptions"
+                     validator="[required, date]"
+                     validator-group="v1"
+                     uib-tooltip="validator= [required, date] "></datepicker2>
+
+              </form-group>
+            </div>
+            <div class="col-md-6">
+              <form-group>
+                <label class="control-label">Age:</label>
+                <input type="text" class="form-control input-small" ng-model="customer.age"
+                       validator="[digits, required]" validator-group="v1"
+                       uib-tooltip="validator = [ digits, required ]">
+              </form-group>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <form-group>
+                <label class="control-label">Region:</label>
+
+                <ui-select ng-model="customer.region" ng-disabled="disabled" validator="[required]"
+                           validator-group="v1" uib-tooltip="validator= [required] ">
+                  <ui-select-match placeholder="Please select a country">
+                    <img class="flag" ng-src="{{$select.selected.flag}}"> {{$select.selected.name}}
+                  </ui-select-match>
+                  <ui-select-choices repeat="region.id as region in regions | filter: $select.search"
+                                     refresh="refreshRegions($select.search)"
+                                     refresh-delay="0">
+                    <img class="flag" ng-src="{{region.flag}}"> {{region.name}}
+                  </ui-select-choices>
+                </ui-select>
+
+                <!--ui-select ng-model="customer.region" ng-disabled="disabled" validator="[required]"
+                           validator-group="v1" uib-tooltip="validator= [required] ">
+                  <ui-select-match placeholder="Please select a country">
+                    <img class="flag" ng-src="{{$select.selected.flag}}"> {{$select.selected.name}}
+                  </ui-select-match>
+                  <ui-select-choices repeat="region.id as region in regions | filter: $select.search">
+                    <img class="flag" ng-src="{{region.flag}}"> {{region.name}}
+                  </ui-select-choices>
+                </ui-select-->
+              </form-group>
+            </div>
+            <div class="col-md-6">
+              <form-group>
+                <label class="control-label">Email:</label>
+
+                <div class="input-group">
+                  <input type="text" class="form-control" ng-model="customer.email" validator-group="v1"
+                         validator="[email, required]" uib-tooltip="validator = [ email, required ]">
+                  <span class="input-group-addon">
+											<i class="fa fa-envelope"></i>
+											</span>
+                </div>
+              </form-group>
+            </div>
+
+          </div>
+
+        </form-body>
+
+        <div class="row">
+          <div class="col-md-6">
+            <form-group>
+              <label class="control-label">Mobile:</label>
+
+              <div class="input-group">
+                <input type="text" class="form-control" ng-model="customer.mobile" validator-group="v1"
+                       validator="[required]" uib-tooltip="validator = [ required ]">
+                <span class="input-group-addon">
+											<i class="fa fa-mobile"></i>
+                </span>
+              </div>
+            </form-group>
+          </div>
+          <div class="col-md-6">
+            <div form-group>
+              <label class="control-label">Blog:</label>
+
+              <input type="text" class="form-control" ng-model="customer.blog" validator-group="v1"
+                     validator="[url, required]" uib-tooltip="validator = [ url, required ]">
+
+            </div>
+          </div>
+        </div>
+
+        <form-actions class="nobg fluid right">
+          <button type="button" class="btn green" ng-click="actions.submit()">Submit</button>
+          <button type="button" class="btn default" ng-click="actions.reset()">Reset</button>
+        </form-actions>
+      </form>
+    </portlet-body>
+  </portlet>
+</div>
+

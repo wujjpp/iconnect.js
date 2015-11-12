@@ -1,0 +1,172 @@
+<!doctype html>
+<!--[if IE 8]>
+<html lang="en" class="ie8 no-js" data-ng-app="iconnectApp"> <![endif]-->
+<!--[if IE 9]>
+<html lang="en" class="ie9 no-js" data-ng-app="iconnectApp"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" data-ng-app="iconnectApp">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+
+<head>
+  <title data-ng-bind="'iConnect.js | ' + $state.current.data.pageTitle"></title>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="" name="description"/>
+  <meta content="" name="author"/>
+
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-switch/dist/css/bootstrap3/bootstrap-switch.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <link rel="stylesheet" href="bower_components/simple-line-icons/css/simple-line-icons.css" />
+  <link rel="stylesheet" href="bower_components/select2/select2.css" />
+  <link rel="stylesheet" href="bower_components/ui-select/dist/select.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" />
+  <link rel="stylesheet" href="bower_components/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" />
+  <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <link rel="stylesheet" id="style_components" href="styles/global/themes/components.css"/>
+  <link rel="stylesheet" id="style_color" href="styles/global/themes/default.css"/>
+
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/global/google-font.css"/>
+  <link rel="stylesheet" href="styles/global/plugins.css"/>
+  <link rel="stylesheet" href="styles/global/layout.css"/>
+  <link rel="stylesheet" href="styles/main.css">
+
+  <!-- endbuild -->
+
+
+</head>
+
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+<!-- DOC: Apply "page-header-fixed-mobile" and "page-footer-fixed-mobile" class to body element to force fixed header or footer in mobile devices -->
+<!-- DOC: Apply "page-sidebar-closed" class to the body and "page-sidebar-menu-closed" class to the sidebar menu element to hide the sidebar by default -->
+<!-- DOC: Apply "page-sidebar-hide" class to the body to make the sidebar completely hidden on toggle -->
+<!-- DOC: Apply "page-sidebar-closed-hide-logo" class to the body element to make the logo hidden on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-hide" class to body element to completely hide the sidebar on sidebar toggle -->
+<!-- DOC: Apply "page-sidebar-fixed" class to have fixed sidebar -->
+<!-- DOC: Apply "page-footer-fixed" class to the body element to have fixed footer -->
+<!-- DOC: Apply "page-sidebar-reversed" class to put the sidebar on the right side -->
+<!-- DOC: Apply "page-full-width" class to the body element to have full width page without the sidebar menu -->
+<body ng-class="{
+  'login':!loginService.isLogin(),
+  'page-header-fixed':loginService.isLogin(),
+  'page-sidebar-closed-hide-logo':loginService.isLogin(),
+  'page-quick-sidebar-over-content':loginService.isLogin(),
+  'page-container-bg-solid': settings.layout.pageBodySolid && loginService.isLogin(),
+  'page-sidebar-closed': settings.layout.pageSidebarClosed && loginService.isLogin()
+  }" ng-controller="AppController">
+
+<div ui-view class="root-view-container"></div>
+
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/jquery.js"></script>
+<script src="bower_components/ExplorerCanvas/excanvas.js"></script>
+<script src="bower_components/respond/dest/respond.src.js"></script>
+<script src="bower_components/underscore/underscore.js"></script>
+<script src="bower_components/jquery-migrate/jquery-migrate.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+<script src="bower_components/slimScroll/jquery.slimscroll.js"></script>
+<script src="bower_components/blockUI/jquery.blockUI.js"></script>
+<script src="bower_components/bootstrap-switch/dist/js/bootstrap-switch.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/crypto-js/crypto-js.js"></script>
+<script src="bower_components/jquery-backstretch/jquery.backstretch.js"></script>
+<script src="bower_components/select2/select2.js"></script>
+<script src="bower_components/angular-ui-select3/src/select3.js"></script>
+<script src="bower_components/ui-select/dist/select.js"></script>
+<script src="bower_components/angular-mocks/angular-mocks.js"></script>
+<script src="bower_components/angular-validator/dist/angular-validator.js"></script>
+<script src="bower_components/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="bower_components/jquery.pulsate/jquery.pulsate.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/toastr/toastr.js"></script>
+<script src="bower_components/bootbox.js/bootbox.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+<script src="scripts/app.js"></script>
+<script src="scripts/router.js"></script>
+<script src="scripts/directives/global/a.js"></script>
+<script src="scripts/directives/global/dropdownmenuhover.js"></script>
+<script src="scripts/directives/global/portlet.js"></script>
+<script src="scripts/directives/global/form.js"></script>
+<script src="scripts/directives/global/datepicker.js"></script>
+<script src="scripts/directives/global/slimscroller.js"></script>
+<script src="scripts/directives/global/checkbox.js"></script>
+<script src="scripts/directives/global/radio.js"></script>
+
+<script src="scripts/services/global/metronic.js"></script>
+<script src="scripts/services/global/layout.js"></script>
+<script src="scripts/services/global/quick-sidebar.js"></script>
+<script src="scripts/services/global/settings.js"></script>
+<script src="scripts/services/global/themesetting.js"></script>
+<script src="scripts/services/global/interceptors/blockui.js"></script>
+<script src="scripts/services/global/interceptors/responseparser.js"></script>
+<script src="scripts/services/global/validators.js"></script>
+<script src="scripts/services/global/paginator.js"></script>
+<script src="scripts/services/global/serializer/jsonserializer.js"></script>
+<script src="scripts/services/global/storage/localstorageservice.js"></script>
+<script src="scripts/services/global/storage/sessionstorageservice.js"></script>
+<script src="scripts/services/global/storage/remotestorageservice.js"></script>
+<script src="scripts/services/global/storage/cookiestorageservice.js"></script>
+<script src="scripts/services/global/stateManager/statemanager.js"></script>
+<script src="scripts/services/global/stateManager/controllerstatemanager.js"></script>
+
+<script src="scripts/controllers/global/app.js"></script>
+<script src="scripts/controllers/global/header.js"></script>
+<script src="scripts/controllers/global/sidebar.js"></script>
+<script src="scripts/controllers/global/quicksidebar.js"></script>
+<script src="scripts/controllers/global/themepanel.js"></script>
+<script src="scripts/controllers/global/footer.js"></script>
+
+
+<script src="scripts/controllers/dashboard.js"></script>
+<script src="scripts/controllers/form-validation.js"></script>
+<script src="scripts/controllers/todo.js"></script>
+
+<script src="scripts/services/taskservice.js"></script>
+<script src="scripts/services/currencyconverter.js"></script>
+
+<script src="scripts/controllers/login.js"></script>
+<script src="scripts/services/loginservice.js"></script>
+
+<script src="scripts/services/regionservice.js"></script>
+<script src="scripts/services/customerservice.js"></script>
+<script src="scripts/controllers/sample-checkbox.js"></script>
+<script src="scripts/controllers/sample-radio.js"></script>
+<script src="scripts/controllers/sample-datepicker.js"></script>
+<script src="scripts/controllers/sample-customer.js"></script>
+<script src="scripts/filters/genderdecoder.js"></script>
+<script src="scripts/controllers/sample-customereditor.js"></script>
+<script src="scripts/controllers/sample-customereditor2.js"></script>
+
+<!-- endbuild -->
+
+<script>
+  $(document).ready(function () {
+    //Metronic.init(); // init metronic core components
+  });
+</script>
+
+</body>
+</html>

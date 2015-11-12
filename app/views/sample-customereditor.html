@@ -1,0 +1,203 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="actions.cancel()"></button>
+  <h4 class="modal-title">{{customer.id? 'Edit' : 'Create'}} Customer</h4>
+</div>
+<div class="modal-body">
+  <form name="customerForm" class="horizontal-form">
+    <form-body>
+      <div class="row">
+        <!--Company Name-->
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">Company Name:</label>
+            <input type="text" class="form-control" ng-model="customer.companyName"
+                   uib-tooltip="validator = [ required ]"
+                   validator="[required]" validator-group="v1">
+          </form-group>
+        </div>
+        <!--Contact Name-->
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">Contact Name:</label>
+            <input type="text" class="form-control" ng-model="customer.contactName"
+                   uib-tooltip="validator = [ required ]"
+                   validator="[required]" validator-group="v1">
+          </form-group>
+        </div>
+        <!--Join Date-->
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">Join Date:</label>
+
+            <datepicker2
+              ng-model="customer.joinDate"
+              datepicker-options="defaultOptions"
+              validator="[required, date]"
+              validator-group="v1"
+              uib-tooltip="validator= [required, date] "></datepicker2>
+
+          </form-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <!--Address-->
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">Address:</label>
+            <input type="text" class="form-control" ng-model="customer.address"
+                   validator="[required]" validator-group="v1"
+                   uib-tooltip="validator = [ required ]">
+          </form-group>
+        </div>
+        <!--City-->
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">City:</label>
+
+
+            <input type="text" class="form-control" ng-model="customer.city" validator-group="v1"
+                   validator="[required]" uib-tooltip="validator = [ required ]">
+
+          </form-group>
+        </div>
+        <!--Region-->
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">Region:</label>
+
+            <ui-select ng-model="customer.region" ng-disabled="disabled" validator="[required]"
+                       validator-group="v1" uib-tooltip="validator= [required] ">
+              <ui-select-match placeholder="Please select a country">
+                <img class="flag" ng-src="{{$select.selected.flag}}"> {{$select.selected.name}}
+              </ui-select-match>
+              <ui-select-choices repeat="region.id as region in regions | filter: $select.search"
+                                 refresh="refreshRegions($select.search)"
+                                 refresh-delay="0">
+                <img class="flag" ng-src="{{region.flag}}"> {{region.name}}
+              </ui-select-choices>
+            </ui-select>
+          </form-group>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <!--Email-->
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">Email:</label>
+
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="customer.email" validator-group="v1"
+                     validator="[required, email]" uib-tooltip="validator = [ email, required ]">
+                     <span class="input-group-addon">
+											<i class="fa fa-envelope"></i>
+											</span>
+            </div>
+          </form-group>
+        </div>
+        <!--Mobile-->
+        <div class="col-md-4">
+          <div form-group>
+            <label class="control-label">Mobile:</label>
+
+            <div class="input-group">
+              <input type="text" class="form-control" ng-model="customer.mobile" validator-group="v1"
+                     validator="[required]" uib-tooltip="validator = [required ]">
+             <span class="input-group-addon">
+											<i class="fa fa-mobile"></i>
+                </span>
+            </div>
+          </div>
+        </div>
+        <!--Website-->
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">Web Site:</label>
+
+
+            <input type="text" class="form-control" ng-model="customer.webSite" validator-group="v1"
+                   validator="[required, url]" uib-tooltip="validator = [ url, required ]">
+
+          </form-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-4">
+          <form-group>
+            <label class="control-label">Gender:</label>
+
+            <div class="input-group">
+              <radio
+                value=0
+                class="radio-info radio-inline"
+                ng-text="'Male'"
+                ng-model="customer.gender">
+              </radio>
+              <radio
+                class="radio-danger radio-inline"
+                value="1"
+                ng-text="'Female'"
+                ng-model="customer.gender">
+              </radio>
+            </div>
+          </form-group>
+        </div>
+        <div class="col-md-8">
+          <form-group>
+            <label class="control-label">Status:</label>
+
+            <div class="input-group">
+              <radio
+                value='blocked'
+                class="radio-info radio-inline"
+                ng-text="'Blocked'"
+                ng-model="customer.status">
+              </radio>
+              <radio
+                class="radio-danger radio-inline"
+                value="approved"
+                ng-text="'Approved'"
+                ng-model="customer.status">
+              </radio>
+              <radio
+                value='suspended'
+                class="radio-info radio-inline"
+                ng-text="'Suspended'"
+                ng-model="customer.status">
+              </radio>
+              <radio
+                class="radio-danger radio-inline"
+                value="pending"
+                ng-text="'Pending'"
+                ng-model="customer.status">
+              </radio>
+            </div>
+          </form-group>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <form-group>
+            <label class="control-label">Group:</label>
+
+            <div class="input-group">
+              <div checkbox ng-repeat="item in groups"
+                   class="checkbox-inline checkbox-info"
+                   ng-text="item.groupName"
+                   ng-model="item.selected">
+              </div>
+            </div>
+          </form-group>
+        </div>
+      </div>
+    </form-body>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn green" type="button" ng-disabled="customerForm.$invalid" ng-click="actions.submit()">Save</button>
+  <button class="btn default" type="button" ng-click="actions.cancel()">Cancel</button>
+</div>

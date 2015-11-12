@@ -1,0 +1,307 @@
+<!--div checkbox
+     class="checkbox-primary"
+     ng-text="'Locked'"
+     ng-model="customer.locked"
+     ng-change="onCheckedChanged()"
+     ng-true-value="'YES'"
+     ng-false-value="'NO'">
+</div-->
+
+<div class="col-md-12">
+
+  <h3 class="form-section">Styling</h3>
+
+  <div class="note note-success">
+    <h4>Supports bootstrap brand colors:</h4>
+
+    <p><code>.checkbox-primary</code>
+
+      <code>.checkbox-success</code>
+
+      <code>.checkbox-info</code>
+
+      <code>.checkbox-warning</code>
+
+      <code>.checkbox-danger</code>
+    </p>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div checkbox
+           ng-text="'default'"
+           ng-model="checked">
+      </div>
+      <div checkbox
+           class="checkbox-primary"
+           ng-text="'primary'"
+           ng-model="checked">
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <div checkbox
+           class="checkbox-info"
+           ng-text="'info'"
+           ng-model="checked">
+      </div>
+      <div checkbox
+           class="checkbox-warning"
+           ng-text="'warning'"
+           ng-model="checked">
+      </div>
+
+    </div>
+    <div class="col-md-4">
+      <div checkbox
+           class="checkbox-success"
+           ng-text="'success'"
+           ng-model="checked">
+      </div>
+      <div checkbox
+           class="checkbox-danger"
+           ng-text="'danger'"
+           ng-model="checked">
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3 class="form-section">Inline-Mode</h3>
+
+  <div class="note note-success">
+    <h4>set class <code>.checkbox-inline</code> on checkbox directive to allowed inline</h4>
+  </div>
+  <div class="input-group">
+    <div checkbox
+         class="checkbox-inline"
+         ng-text="'default'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-primary checkbox-inline"
+         ng-text="'primary'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-success checkbox-inline"
+         ng-text="'success'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-info checkbox-inline"
+         ng-text="'info'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-warning checkbox-inline"
+         ng-text="'warning'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-danger checkbox-inline"
+         ng-text="'danger'"
+         ng-model="checked">
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3 class="form-section">Circled checkbox</h3>
+
+  <div class="note note-success">
+    <h4><code>.checkbox-circle</code> for roundness.</h4>
+  </div>
+  <div class="input-group">
+    <div checkbox
+         class="checkbox-circle  checkbox-inline"
+         ng-text="'default'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-primary checkbox-circle checkbox-inline"
+         ng-text="'primary'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-success checkbox-circle checkbox-inline"
+         ng-text="'success'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-info checkbox-circle checkbox-inline"
+         ng-text="'info'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-warning checkbox-circle checkbox-inline"
+         ng-text="'warning'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-danger checkbox-circle checkbox-inline"
+         ng-text="'danger'"
+         ng-model="checked">
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3 class="form-section">Disabled</h3>
+
+  <div class="note note-success">
+    <h4><code>ng-disabled</code> for enable or disable checkbox
+    </h4>
+
+    <p>
+
+    <div checkbox
+         class="checkbox-inline"
+         ng-text="'Click to enable or disable checkboxs'"
+         ng-model="disableCheckbox">
+    </div>
+    </p>
+  </div>
+  <div class="input-group">
+    <div checkbox
+         class="checkbox-inline"
+         ng-disabled="disableCheckbox"
+         ng-text="'default'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-primary checkbox-inline"
+         ng-disabled="disableCheckbox"
+         ng-text="'primary'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-success checkbox-inline"
+         ng-disabled="disableCheckbox"
+         ng-text="'success'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-info checkbox-inline"
+         ng-disabled="disableCheckbox"
+         ng-text="'info'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-warning checkbox-inline"
+         ng-disabled="disableCheckbox"
+         ng-text="'warning'"
+         ng-model="checked">
+    </div>
+    <div checkbox
+         class="checkbox-danger checkbox-inline"
+         ng-disabled="disableCheckbox"
+         ng-text="'danger'"
+         ng-model="checked">
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3 class="form-section">Value</h3>
+
+  <div class="note note-success">
+    <h4>true or false in boolean format</h4>
+
+    <p>$scope.checked: <span id="lblChecked2" class="label label-danger">{{checked2}}</span></p>
+  </div>
+
+  <div checkbox
+       class="checkbox-primary checkbox-inline"
+       ng-text="'primary'"
+       ng-model="checked2">
+
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3 class="form-section">ng-true-value and ng-false-value for customised checked or unchecked value</h3>
+
+  <div class="note note-success">
+    <h4>You can customised <span class="label label-success">true</span> value and <span class="label label-danger">false</span>
+      value for model
+    </h4>
+
+    <p>In the following example, we used "YES" as true and "NO" as false, in string format</p>
+
+    <p>$scope.checkedValue: <span id="lblCheckedValue" class="label label-danger">{{checkedValue}}</span></p>
+  </div>
+
+  <div checkbox
+       class="checkbox-info"
+       ng-text="'Customised-1'"
+       ng-true-value="'YES'"
+       ng-false-value="'NO'"
+       ng-model="checkedValue">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3 class="form-section">ng-true-value and ng-false-value for customised checked or unchecked object</h3>
+
+  <div class="note note-success">
+    <h4>You can customised <span class="label label-success">true</span> object and <span class="label label-danger">false</span>
+      object for model
+    </h4>
+
+    <p>In the following example:</p>
+
+    <p>if the checkbox checked the $scope.trueObject will be set to $scope.checkedObject</p>
+
+    <p>if un-check the checkbox, the $scope.falseObject will be set to $scope.checkedObject</p>
+
+    <p>$scope.checkObject: <span id="lblCheckedObject" class="label label-danger">{{checkedObject}}</span></p>
+  </div>
+
+  <div checkbox
+       class="checkbox-info"
+       ng-text="'Customised-2'"
+       ng-true-value="trueObject"
+       ng-false-value="falseObject"
+       ng-model="checkedObject">
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3 class="form-section">ng-change Event</h3>
+
+  <div class="note note-success">
+    <h4>Handle on change event</h4>
+  </div>
+
+  <div checkbox
+       class="checkbox-primary checkbox-inline"
+       ng-text="'Click to trigger event'"
+       ng-model="checked3"
+       ng-change="onChangeCallback()">
+
+  </div>
+</div>
+
+<div class="col-md-12">
+  <h3 class="form-section">Checkbox list</h3>
+
+  <div class="note note-success">
+    <h4>Checkbox list</h4>
+
+    <p ng-repeat="item in items">
+      {{item}}
+    </p>
+  </div>
+
+  <div checkbox ng-repeat="item in items"
+       class="checkbox-inline checkbox-info"
+       ng-text="item.name"
+       ng-model="item.selected">
+  </div>
+</div>
+
+
+
+

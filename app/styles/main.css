@@ -1,0 +1,59 @@
+
+@import url('login-soft.css');
+
+body{
+overflow-y:scroll;
+}
+
+.centered{
+  text-align: center;
+}
+
+/* override metronic checkboxe and radio style*/
+
+.checkbox,
+.form-horizontal .checkbox {
+  padding: 10px 0px 0px 22px;
+}
+
+.checkbox > label,
+.form-horizontal .checkbox > label {
+  padding-left: 5px;
+}
+
+.radio, .checkbox {
+  margin-top: 0px;
+}
+
+
+/*set checkbox and radio to back, it will forbid checkbox or radio click*/
+.checkbox input[type="checkbox"],
+.radio input[type="radio"] {
+  z-index: 0;
+}
+
+/*set checkbox or radio label cursor*/
+.checkbox > label[disabled],
+.radio > label[disabled] {
+  cursor: not-allowed;
+}
+
+/*forbid select text*/
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/*resolve conflict with angular-bootstrap modal*/
+.page-quick-sidebar-toggler{
+  z-index: 994;
+}
+.page-header.navbar.navbar-fixed-top{
+  z-index: 995;
+}
+.page-footer-fixed .page-footer{
+  z-index: 995;
+}
