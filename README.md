@@ -1,5 +1,8 @@
 # iconnect
 
+## Prepare
+npm install -g bower-cli bower yo generator-karma generator-angular
+
 ## Install 
 1. git clone https://github.com/wujjpp/iconnect.js.git
 2. npm install & bower install
