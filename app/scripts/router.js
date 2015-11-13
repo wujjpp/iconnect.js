@@ -7,8 +7,6 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
   $urlMatcherFactoryProvider.caseInsensitive(true);
   $urlMatcherFactoryProvider.strictMode(false);
 
-
-
   $urlMatcherFactoryProvider.type('pagination', {
     encode: function(item) {
       console.log(item);
