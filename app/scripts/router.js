@@ -8,6 +8,7 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
   $urlMatcherFactoryProvider.strictMode(false);
 
 
+  /*
   $urlMatcherFactoryProvider.type('pagination', {
     encode: function(item) {
       console.log(item);
@@ -24,7 +25,7 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
      // return list.indexOf(item) > -1;
       return true;
     }
-  });
+  });*/
 
   // For any unmatched url, send to /
   $urlRouterProvider.otherwise("/");
