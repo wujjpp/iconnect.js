@@ -7,6 +7,11 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
   $urlMatcherFactoryProvider.caseInsensitive(true);
   $urlMatcherFactoryProvider.strictMode(false);
 
+<<<<<<< HEAD
+=======
+
+  /*
+>>>>>>> parent of 964c402... test vim
   $urlMatcherFactoryProvider.type('pagination', {
     encode: function(item) {
       console.log(item);
@@ -23,7 +28,7 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
      // return list.indexOf(item) > -1;
       return true;
     }
-  });
+  });*/
 
   
   // For any unmatched url, send to /
