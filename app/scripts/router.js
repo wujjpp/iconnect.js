@@ -25,6 +25,7 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
     }
   });
 
+  
   // For any unmatched url, send to /
   $urlRouterProvider.otherwise("/");
 
