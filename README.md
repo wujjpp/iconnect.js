@@ -1,11 +1,12 @@
 # iconnect
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+## Install 
+1. git clone https://github.com/wujjpp/iconnect.js.git
+2. npm install & bower install
 
 ## Build & development
 
-Run `grunt` for building and `grunt serve` for preview.
+Run `grunt build` for building and `grunt serve` for preview.
 
 ## Testing
 
