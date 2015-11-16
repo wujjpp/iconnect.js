@@ -35,9 +35,7 @@ module.exports = function (connect, middlewares) {
         req.query.page = 1;
       }
     }
-
     next();
-
   }));
 
 
