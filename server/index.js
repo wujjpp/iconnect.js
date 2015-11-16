@@ -38,7 +38,6 @@ module.exports = function (connect, middlewares) {
     next();
   }));
 
-
   mocks.forEach(function (route) {
     middlewares.push(connect().use(route()));
   });
