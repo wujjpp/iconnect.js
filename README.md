@@ -1,4 +1,4 @@
-# iconnect.js
+# iConnect.js
 
 ## Prepare
 `npm install -g bower-cli bower yo generator-karma generator-angular`
