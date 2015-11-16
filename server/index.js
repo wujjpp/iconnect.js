@@ -20,22 +20,24 @@ module.exports = function (connect, middlewares) {
   middlewares.push(connect.query());
 
   middlewares.push(connect().use( function(req, res, next){
-    if(req.query.pageSize) {
+    if(req.query.size) {
       try{
-        req.query.pageSize = parseInt(req.query.pageSize);
+        req.query.size = parseInt(req.query.size);
       }catch(e){
-        req.query.pageSize = 10;
-      };
+        req.query.size = 10;
+      }
     }
-    if(req.query.pageIndex){
+    if(req.query.page){
       try{
-        req.query.pageIndex = parseInt(req.query.pageIndex);
+        req.query.page = parseInt(req.query.page);
       }
       catch(e){
-        req.query.pageIndex = 1;
+        req.query.page = 1;
       }
     }
+
     next();
+
   }));
 
 
