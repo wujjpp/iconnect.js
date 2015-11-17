@@ -59,6 +59,11 @@ angular.module('iconnectApp')
             url: '#/authorised/myTasks',
             icon: 'icon-puzzle',
             name: 'TODO'
+          },
+          {
+            url: '#/authorised/product',
+            icon: 'icon-puzzle',
+            name: 'Products'
           }]
       },
       {

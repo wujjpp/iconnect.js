@@ -67,11 +67,13 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
       controller:'DatepickerCtrl',
       controllerAs:'datepicker'
     })
+
     .state('authorised.customer', {
       url: "/customer",
       templateUrl: 'views/sample-customer.html',
       controller: 'CustomerCtrl'
     })
+
     //for create customer in 'new page' mode
     .state('authorised.createcustomer', {
       url: "/customer/create",
@@ -88,8 +90,13 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
       url: "/myTasks",
       templateUrl: 'views/todo.html',
       controller: 'ToDoCtrl'
-    });
+    })
 
+    .state('authorised.product', {
+      url: "/product",
+      templateUrl: 'views/sample-product.html',
+      controller: 'ProductCtrl'
+    });
 
 }]);
 

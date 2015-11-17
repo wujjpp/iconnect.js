@@ -1,0 +1,67 @@
+<div class="col-md-12">
+  <portlet class="bordered light">
+    <portlet-title>
+      <portlet-caption class="font-green-sharp">
+        <i class="icon-settings font-green-sharp"></i>
+        <span class="caption-subject bold uppercase">PRODUCTS</span>
+        <span class="caption-helper">Product list, <span class="label label-danger">inline-editing</span> and <span class="label label-danger">validator in repeater</span> sample</span>
+      </portlet-caption>
+    </portlet-title>
+    <portlet-body>
+
+      <portlet-body>
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th> #</th>
+              <th> Product Name</th>
+              <th> Unit Price</th>
+              <th class="centered">Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="product in products" ng-form="subForm">
+              <td>{{$index + 1}}</td>
+
+              <td ng-if="!product.isEdting">{{product.productName}}</td>
+              <td ng-if="!product.isEdting">{{product.unitPrice}}</td>
+              <td ng-if="!product.isEdting" class="centered">
+                <button class="btn default btn-xs purple-stripe" ng-click="edit(product)">
+                  <i class="fa fa-edit"></i> Edit
+                </button>
+              </td>
+
+                <td ng-if="product.isEdting">
+                  <form-group>
+                    <input type="text" class="form-control input-sm"
+                           validator="[required]"
+                           ng-model="product.productName">
+                  </form-group>
+                </td>
+                <td ng-if="product.isEdting">
+                  <form-group>
+                    <input type="text" class="form-control input-sm"
+                           validator="[digits, required]"
+                           ng-model="product.unitPrice">
+                  </form-group>
+                </td>
+                <td ng-if="product.isEdting" class="centered">
+                  <button class="btn default btn-xs purple-stripe" ng-click="save(product)" ng-disabled="subForm.$invalid">
+                    <i class="fa fa-save"></i> Save
+                  </button>
+                  <button class="btn default btn-xs red-stripe" ng-click="cancel(product)">
+                    <i class="fa fa-close"></i> Cancel
+                  </button>
+                </td>
+
+            </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+      </portlet-body>
+    </portlet-body>
+  </portlet>
+</div>
