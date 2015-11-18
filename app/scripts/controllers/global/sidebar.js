@@ -64,6 +64,11 @@ angular.module('iconnectApp')
             url: '#/authorised/product',
             icon: 'icon-puzzle',
             name: 'Products'
+          },
+          {
+            url: '#/authorised/order',
+            icon: 'icon-puzzle',
+            name: 'Orders'
           }]
       },
       {

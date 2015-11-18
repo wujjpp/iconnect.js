@@ -96,7 +96,13 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
       url: "/product",
       templateUrl: 'views/sample-product.html',
       controller: 'ProductCtrl'
-    });
+    })
+
+  .state('authorised.order', {
+    url: "/order",
+    templateUrl: 'views/sample-order.html',
+    controller: 'OrderCtrl'
+  });
 
 }]);
 

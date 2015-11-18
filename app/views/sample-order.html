@@ -1,0 +1,112 @@
+<div class="col-md-12">
+  <portlet class="bordered light">
+    <portlet-title>
+      <portlet-caption class="font-green-sharp">
+        <i class="icon-settings font-green-sharp"></i>
+        <span class="caption-subject bold uppercase">ORDERS</span>
+        <span class="caption-helper">Order list</span>
+      </portlet-caption>
+    </portlet-title>
+    <portlet-body>
+
+      <portlet-body>
+
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+              <th> #</th>
+              <th> Company</th>
+              <th> Contact</th>
+              <th> Employee</th>
+              <th> Order Date</th>
+
+              <th>Freight</th>
+              <th>Item Count</th>
+              <th class="centered">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr ng-repeat-start="order in orders">
+              <td>{{$index + 1}}</td>
+              <td>{{order.companyName}}</td>
+              <td>{{order.contactName}}</td>
+              <td>{{order.employeeName}}</td>
+              <td>{{order.orderDate}}</td>
+              <td>{{order.freight}}</td>
+              <td class="centered"><span class="badge badge-info">{{order.orderDetails.length}}</span></td>
+              <td>
+                <button class="btn default btn-xs red-stripe" ng-click="toogle(order)">
+                  <i class="fa fa-eye"></i> Details
+                </button>
+                <a class="btn default btn-xs purple-stripe">
+                  <i class="fa fa-edit"></i>Edit
+                </a>
+                <button class="btn default btn-xs red-stripe" ng-click="delete(order.orderId)">
+                  <i class="fa fa-trash-o"></i> Delete
+                </button>
+              </td>
+            </tr>
+            <tr ng-repeat-end ng-show="order.isOpen">
+              <td></td>
+              <td colspan="7">
+                <div class="row">
+                  <div class="col-md-4">
+                    Required Date: {{order.requiredDate}}
+                  </div>
+
+                  <div class="col-md-4">
+                    Shipped Date: {{order.shippedDate}}
+                  </div>
+                  <div class="col-md-4">
+                    Ship Name: {{order.shipName}}
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    Ship Address: {{order.shipAddress}}
+                  </div>
+
+                  <div class="col-md-4">
+                    Ship City:{{order.shipCity}}
+                  </div>
+                </div>
+
+
+                <table class="table table-hover">
+                  <thead>
+                  <tr>
+                    <th>
+                      Product Name
+                    </th>
+                    <th>
+                      Unit Price
+                    </th>
+                    <th>
+                      Quantity
+                    </th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr ng-repeat="item in order.orderDetails">
+                    <td>{{item.productName}}</td>
+                    <td>{{item.unitPrice}}</td>
+                    <td>{{item.quantity}}</td>
+                  </tr>
+                  </tbody>
+                </table>
+
+              </td>
+            </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </portlet-body>
+    </portlet-body>
+  </portlet>
+</div>
