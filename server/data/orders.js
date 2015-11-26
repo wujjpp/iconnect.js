@@ -852,9 +852,9 @@ function OrderContainer(){
     return data;
   };
 
-  this.getOrders = function(properties){
+  this.getOrders = function(){
     var data = [];
-    var tmp = _.where(orders, properties);
+    var tmp = _.filter(orders, function(){return true;});
     _.each(tmp, function(o){
       data.push(buildOrder(o));
     });

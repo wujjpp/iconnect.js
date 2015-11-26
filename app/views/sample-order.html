@@ -6,107 +6,163 @@
         <span class="caption-subject bold uppercase">ORDERS</span>
         <span class="caption-helper">Order list</span>
       </portlet-caption>
+      <portlet-actions>
+        <button class="btn default btn-xs green-stripe" uib-tooltip="Open Or Close Filter"
+                ng-click="toggleSearchArea()">
+          <i class="fa fa-filter"></i> Filter
+        </button>
+        <button class="btn default btn-xs purple-stripe" uib-tooltip="Refresh Data"
+                ng-click="onPageChanged()">
+          <i class="fa fa-repeat"></i> Refresh
+        </button>
+        <a class="btn default btn-xs red-stripe" uib-tooltip="Create new order" ui-sref="authorised.createorder()">
+          <i class="fa fa-plus"></i> Create
+        </a>
+
+      </portlet-actions>
     </portlet-title>
-    <portlet-body>
 
-      <portlet-body>
-
-
-        <div class="table-responsive">
-          <table class="table">
-            <thead>
-            <tr>
-              <th> #</th>
-              <th> Company</th>
-              <th> Contact</th>
-              <th> Employee</th>
-              <th> Order Date</th>
-
-              <th>Freight</th>
-              <th>Item Count</th>
-              <th class="centered">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-
-            <tr ng-repeat-start="order in orders">
-              <td>{{$index + 1}}</td>
-              <td>{{order.companyName}}</td>
-              <td>{{order.contactName}}</td>
-              <td>{{order.employeeName}}</td>
-              <td>{{order.orderDate}}</td>
-              <td>{{order.freight}}</td>
-              <td class="centered"><span class="badge badge-info">{{order.orderDetails.length}}</span></td>
-              <td>
-                <button class="btn default btn-xs red-stripe" ng-click="toogle(order)">
-                  <i class="fa fa-eye"></i> Details
-                </button>
-                <a class="btn default btn-xs purple-stripe">
-                  <i class="fa fa-edit"></i>Edit
-                </a>
-                <button class="btn default btn-xs red-stripe" ng-click="delete(order.orderId)">
-                  <i class="fa fa-trash-o"></i> Delete
-                </button>
-              </td>
-            </tr>
-            <tr ng-repeat-end ng-show="order.isOpen">
-              <td></td>
-              <td colspan="7">
-                <div class="row">
-                  <div class="col-md-4">
-                    Required Date: {{order.requiredDate}}
-                  </div>
-
-                  <div class="col-md-4">
-                    Shipped Date: {{order.shippedDate}}
-                  </div>
-                  <div class="col-md-4">
-                    Ship Name: {{order.shipName}}
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-4">
-                    Ship Address: {{order.shipAddress}}
-                  </div>
-
-                  <div class="col-md-4">
-                    Ship City:{{order.shipCity}}
-                  </div>
-                </div>
-
-
-                <table class="table table-hover">
-                  <thead>
-                  <tr>
-                    <th>
-                      Product Name
-                    </th>
-                    <th>
-                      Unit Price
-                    </th>
-                    <th>
-                      Quantity
-                    </th>
-
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr ng-repeat="item in order.orderDetails">
-                    <td>{{item.productName}}</td>
-                    <td>{{item.unitPrice}}</td>
-                    <td>{{item.quantity}}</td>
-                  </tr>
-                  </tbody>
-                </table>
-
-              </td>
-            </tr>
-            </tbody>
-          </table>
-
+    <portlet-body ng-class="{'display-hide': !isSearchAreaOpened}">
+      <!-- search params -->
+      <form>
+        <div class="row">
+          <div class="col-md-6">
+            <form-group>
+              <label class="control-label">Company Name:</label>
+              <input type="text" class="form-control" ng-model="searchCriteria.companyName">
+            </form-group>
+          </div>
+          <div class="col-md-6">
+            <form-group>
+              <label class="control-label">Contact Name:</label>
+              <input type="text" class="form-control" ng-model="searchCriteria.contactName">
+            </form-group>
+          </div>
         </div>
-      </portlet-body>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="control-group pull-right">
+              <button class="btn btn-primary" ng-click="search()">Search</button>
+              <button class="btn btn-default" ng-click="reset()">Reset</button>
+            </div>
+
+          </div>
+        </div>
+
+
+      </form>
+    </portlet-body>
+
+    <portlet-body>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>
+            <th> #</th>
+            <th> Company</th>
+            <th> Contact</th>
+            <th> Employee</th>
+            <th> Order Date</th>
+
+            <th>Freight</th>
+            <th>Item Count</th>
+            <th class="centered">Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr ng-repeat-start="order in orders">
+            <td>{{ pagination.size*(pagination.page - 1) + $index + 1}}</td>
+            <td>{{order.companyName}}</td>
+            <td>{{order.contactName}}</td>
+            <td>{{order.employeeName}}</td>
+            <td>{{order.orderDate}}</td>
+            <td>{{order.freight}}</td>
+            <td class="centered"><span class="badge badge-info">{{order.orderDetails.length}}</span></td>
+            <td>
+              <button class="btn default btn-xs red-stripe" ng-click="toogle(order)">
+                <i class="fa fa-eye"></i> Details
+              </button>
+              <a class="btn default btn-xs purple-stripe">
+                <i class="fa fa-edit"></i>Edit
+              </a>
+              <button class="btn default btn-xs red-stripe" ng-click="delete(order.orderId)">
+                <i class="fa fa-trash-o"></i> Delete
+              </button>
+            </td>
+          </tr>
+          <tr ng-repeat-end ng-show="order.isOpen">
+            <td></td>
+            <td colspan="7">
+              <div class="row">
+                <div class="col-md-4">
+                  Required Date: {{order.requiredDate}}
+                </div>
+
+                <div class="col-md-4">
+                  Shipped Date: {{order.shippedDate}}
+                </div>
+                <div class="col-md-4">
+                  Ship Name: {{order.shipName}}
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-4">
+                  Ship Address: {{order.shipAddress}}
+                </div>
+
+                <div class="col-md-4">
+                  Ship City:{{order.shipCity}}
+                </div>
+              </div>
+
+
+              <table class="table table-hover">
+                <thead>
+                <tr>
+                  <th>
+                    Product Name
+                  </th>
+                  <th>
+                    Unit Price
+                  </th>
+                  <th>
+                    Quantity
+                  </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in order.orderDetails">
+                  <td>{{item.productName}}</td>
+                  <td>{{item.unitPrice}}</td>
+                  <td>{{item.quantity}}</td>
+                </tr>
+                </tbody>
+              </table>
+
+            </td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <uib-pagination
+            total-items="pagination.count"
+            ng-model="pagination.page"
+            max-size="pagination.max"
+            items-per-page="pagination.size"
+            ng-change="onPageChanged()"
+            rotate="false"
+            class="pagination-sm pull-right"
+            boundary-links="true"></uib-pagination>
+        </div>
+      </div>
     </portlet-body>
   </portlet>
 </div>
