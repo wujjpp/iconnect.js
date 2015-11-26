@@ -48,8 +48,6 @@ module.exports = function () {
       returnedData.data = filtered;
 
       res.end(JSON.stringify(returnedData));
-
-      res.end(JSON.stringify(orders));
     });
 
     router.delete('/api/orders/:orderId', function (req, res) {
