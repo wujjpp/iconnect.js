@@ -1,0 +1,51 @@
+<div class="modal-header">
+  <button type="button" class="close" ng-click="actions.cancel()"></button>
+  <h4 class="modal-title">Add Order Detail</h4>
+</div>
+<div class="modal-body">
+  <form name="customerForm" class="form-horizontal">
+    <form-body>
+
+      <form-group>
+        <label class="control-label col-md-3">Product:</label>
+
+        <div class="col-md-9">
+          <ui-select ng-model="product.selected" ng-disabled="disabled" validator="[required]" validator-group="v1">
+            <ui-select-match placeholder="Please choose a product">
+              {{$select.selected.productName}}
+            </ui-select-match>
+            <ui-select-choices repeat="product in products | filter: $select.search"
+                               refresh="refreshProduct($select.search)"
+                               refresh-delay="0">
+              {{product.productName}}
+            </ui-select-choices>
+          </ui-select>
+        </div>
+      </form-group>
+
+
+      <form-group>
+        <label class="control-label col-md-3">Unit Price:</label>
+
+        <div class="col-md-9">
+          <p class="form-control-static">{{product.selected.unitPrice}}</p>
+        </div>
+      </form-group>
+
+      <form-group>
+        <label class="control-label col-md-3">Quantity:</label>
+
+        <div class="col-md-9">
+          <input type="text" class="form-control" ng-model="product.selected.quantity"
+                 uib-tooltip="validator = [ required ]"
+                 validator="[number, required]" validator-group="v1">
+        </div>
+      </form-group>
+
+    </form-body>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn green" type="button" ng-disabled="customerForm.$invalid" ng-click="actions.submit()">Add</button>
+  <button class="btn default" type="button" ng-click="actions.cancel()">Cancel</button>
+</div>

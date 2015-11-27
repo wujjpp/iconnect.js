@@ -5,6 +5,7 @@
 
 var orderDetails = require('../data/order-details');
 var _= require('underscore');
+var guid = require('lite-guid');
 
 function OrderContainer(){
   var orders = [
@@ -866,6 +867,35 @@ function OrderContainer(){
       return o.orderId != orderId;
     });
     orderDetails.deleteByOrderId(orderId);
+  };
+
+  this.createOrUpdateOrder = function(order){
+    var tmpOrder = _.omit(order, 'orderDetails');
+    if(order.orderId){
+      var instance = getOrder(order.orderId);
+      //update order data
+      _.extend(instance, tmpOrder);
+    }else{
+      //insert order data
+      tmpOrder.orderId = guid.create();
+      orders.push(tmpOrder);
+    }
+
+    //processing order details
+    _.each(order.orderDetails, function(o){
+      if(o.isNew){
+        var tmp = _.pick(o, 'quantity', 'productId');
+        tmp.orderId = tmpOrder.orderId;
+        tmp.detailId = guid.create();
+        orderDetails.insert(tmp);
+      }
+      else if(o.isDeleted){
+        orderDetails.remove(o);
+      }else if(o.isChanged){
+        orderDetails.update(o);
+      }
+    });
+    return order;
   };
 }
 

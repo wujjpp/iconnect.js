@@ -12,10 +12,9 @@ angular.module('iconnectApp')
     'CustomerService',
     function ($state, $stateParams, $scope, $validator, RegionService, customerService) {
 
-
       $state.current.data = {
-        pageTitle: 'Create Customer',
-        title: 'Create Customer',
+        pageTitle: $stateParams.id ? 'Edit Customer': 'Create Customer',
+        title:  $stateParams.id ? 'Edit Customer': 'Create Customer',
         description: 'The description of this page'
       };
 

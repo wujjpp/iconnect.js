@@ -50,9 +50,28 @@ module.exports = function () {
       res.end(JSON.stringify(returnedData));
     });
 
+    router.get('/api/orders/:orderId', function (req, res) {
+      var order = _.chain(orderContainer.getOrders()).find(function(o){
+        return o.orderId == req.params.orderId
+      }).value();
+      res.end(JSON.stringify(order));
+    });
+
     router.delete('/api/orders/:orderId', function (req, res) {
       orderContainer.deleteOrder(req.params.orderId);
       res.end();
+    });
+
+    //create
+    router.post('/api/orders', function (req, res) {
+      var data = orderContainer.createOrUpdateOrder(req.body);
+      res.end(JSON.stringify(data));
+    });
+
+    //update
+    router.put('/api/orders/:id', function (req, res) {
+      var data = orderContainer.createOrUpdateOrder(req.body);
+      res.end(JSON.stringify(data));
     });
   });
 };

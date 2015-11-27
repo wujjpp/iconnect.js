@@ -108,6 +108,26 @@ function OrderDetailContainer(){
       o.orderId != orderId;
     });
   };
+
+  this.insert = function(orderDetail){
+    orderDetails.push(orderDetail);
+  };
+
+  this.update = function(orderDetail) {
+    var instance = _.find(orderDetails, function (o) {
+      return o.detailId === orderDetail.detailId;
+    });
+    if (instance) {
+      instance.quantity = orderDetail.quantity;
+    }
+    return instance;
+  };
+
+  this.remove = function(orderDetail){
+    orderDetails = _.filter(orderDetails, function(o){
+      return o.detailId != orderDetail.detailId;
+    });
+  };
 }
 
 module.exports = new OrderDetailContainer();

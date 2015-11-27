@@ -1,31 +1,30 @@
 'use strict';
 
 
-
-angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', function ($stateProvider, $urlRouterProvider,$urlMatcherFactoryProvider) {
+angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$urlMatcherFactoryProvider', function ($stateProvider, $urlRouterProvider, $urlMatcherFactoryProvider) {
 
   $urlMatcherFactoryProvider.caseInsensitive(true);
   $urlMatcherFactoryProvider.strictMode(false);
 
   /*
-  $urlMatcherFactoryProvider.type('pagination', {
-    encode: function(item) {
-      console.log(item);
-      return $.param(item);
-    },
-    decode: function(item) {
-      // Look up the list item by index
-      console.log(item);
-      return ""; //list[parseInt(item, 10)];
-    },
-    is: function() {
-      // Ensure the item is valid by checking to see that it appears
-      // in the list
-     // return list.indexOf(item) > -1;
-      return true;
-    }
-  });
-  */
+   $urlMatcherFactoryProvider.type('pagination', {
+   encode: function(item) {
+   console.log(item);
+   return $.param(item);
+   },
+   decode: function(item) {
+   // Look up the list item by index
+   console.log(item);
+   return ""; //list[parseInt(item, 10)];
+   },
+   is: function() {
+   // Ensure the item is valid by checking to see that it appears
+   // in the list
+   // return list.indexOf(item) > -1;
+   return true;
+   }
+   });
+   */
 
   // For any unmatched url, send to /
   $urlRouterProvider.otherwise("/");
@@ -36,36 +35,36 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
       templateUrl: 'views/login.html',
       controller: 'LoginCtrl'
     })
-    .state('authorised',{
+    .state('authorised', {
       abstract: true,
       url: '/authorised',
-      templateUrl:'views/authorised.html'
+      templateUrl: 'views/authorised.html'
     })
     .state('authorised.dashboard', {
       url: "/dashboard",
       templateUrl: 'views/dashboard.html',
       controller: 'DashboardCtrl'
     })
-    .state('authorised.formValidation',{
-      url:'/formValidation',
-      templateUrl:'views/form-validation.html',
-      controller:'FormValidationCtrl'
+    .state('authorised.formValidation', {
+      url: '/formValidation',
+      templateUrl: 'views/form-validation.html',
+      controller: 'FormValidationCtrl'
     })
-    .state('authorised.checkbox',{
-      url:'/checkbox',
-      templateUrl:'views/sample-checkbox.html',
-      controller:'CheckboxCtrl'
+    .state('authorised.checkbox', {
+      url: '/checkbox',
+      templateUrl: 'views/sample-checkbox.html',
+      controller: 'CheckboxCtrl'
     })
-    .state('authorised.radio',{
-      url:'/radio',
-      templateUrl:'views/sample-radio.html',
-      controller:'RadioCtrl'
+    .state('authorised.radio', {
+      url: '/radio',
+      templateUrl: 'views/sample-radio.html',
+      controller: 'RadioCtrl'
     })
-    .state('authorised.datepicker',{
-      url:'/datepicker',
-      templateUrl:'views/sample-datepicker.html',
-      controller:'DatepickerCtrl',
-      controllerAs:'datepicker'
+    .state('authorised.datepicker', {
+      url: '/datepicker',
+      templateUrl: 'views/sample-datepicker.html',
+      controller: 'DatepickerCtrl',
+      controllerAs: 'datepicker'
     })
 
     .state('authorised.customer', {
@@ -98,11 +97,19 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
       controller: 'ProductCtrl'
     })
 
-  .state('authorised.order', {
-    url: "/order",
-    templateUrl: 'views/sample-order.html',
-    controller: 'OrderCtrl'
-  });
+    .state('authorised.order', {
+      url: "/order",
+      templateUrl: 'views/sample-order.html',
+      controller: 'OrderCtrl'
+    }).state('authorised.createorder', {
+      url: "/order/create",
+      templateUrl: 'views/sample-order-editor.html',
+      controller: 'OrderEditorCtrl'
+    }).state('authorised.editorder', {
+      url: "/order/edit/:orderId",
+      templateUrl: 'views/sample-order-editor.html',
+      controller: 'OrderEditorCtrl'
+    });
 
 }]);
 

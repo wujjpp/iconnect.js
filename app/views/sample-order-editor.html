@@ -1,0 +1,208 @@
+<div class="col-md-12">
+<form name="customerForm" class="horizontal-form">
+<form-body>
+  <div class="row">
+    <!--Company Name-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Company Name:</label>
+        <input type="text" class="form-control" ng-model="order.companyName"
+               uib-tooltip="validator = [ required ]"
+               validator="[required]" validator-group="v1">
+      </form-group>
+    </div>
+    <!--Contact Name-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Contact Name:</label>
+        <input type="text" class="form-control" ng-model="order.contactName"
+               uib-tooltip="validator = [ required ]"
+               validator="[required]" validator-group="v1">
+      </form-group>
+    </div>
+    <!--Employee Name-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Employee Name:</label>
+        <input type="text" class="form-control" ng-model="order.employeeName"
+               uib-tooltip="validator = [ required ]"
+               validator="[required]" validator-group="v1">
+      </form-group>
+    </div>
+
+  </div>
+  <div class="row">
+    <!--Order Date-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Order Date:</label>
+
+        <datepicker2
+          ng-model="order.orderDate"
+          datepicker-options="defaultOptions"
+          validator="[required, date]"
+          validator-group="v1"
+          uib-tooltip="validator= [required, date] "></datepicker2>
+
+      </form-group>
+    </div>
+    <!--requiredDate-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Required Date:</label>
+
+        <datepicker2
+          ng-model="order.requiredDate"
+          datepicker-options="defaultOptions"
+          validator="[required, date]"
+          validator-group="v1"
+          uib-tooltip="validator= [required, date] "></datepicker2>
+
+      </form-group>
+    </div>
+
+    <!--shipped date-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Shipped Date:</label>
+
+        <datepicker2
+          ng-model="order.shippedDate"
+          datepicker-options="defaultOptions"
+          validator="[required, date]"
+          validator-group="v1"
+          uib-tooltip="validator= [required, date] "></datepicker2>
+
+      </form-group>
+    </div>
+  </div>
+  <div class="row">
+    <!--Freight-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Freight:</label>
+        <input type="text" class="form-control" ng-model="order.freight"
+               uib-tooltip="validator = [ required, number ]"
+               validator="[required, number]" validator-group="v1">
+      </form-group>
+    </div>
+    <!--Ship Name-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Ship Name:</label>
+        <input type="text" class="form-control" ng-model="order.shipName"
+               uib-tooltip="validator = [ required ]"
+               validator="[required]" validator-group="v1">
+      </form-group>
+    </div>
+    <!--Ship Country -->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Ship Country:</label>
+        <input type="text" class="form-control" ng-model="order.shipCountry"
+               uib-tooltip="validator = [ required ]"
+               validator="[required]" validator-group="v1">
+      </form-group>
+    </div>
+  </div>
+  <div class="row">
+    <!--Ship City-->
+    <div class="col-md-4">
+      <form-group>
+        <label class="control-label">Ship City:</label>
+        <input type="text" class="form-control" ng-model="order.shipCity"
+               uib-tooltip="validator = [ required ]"
+               validator="[required]" validator-group="v1">
+      </form-group>
+    </div>
+    <!--Ship Address-->
+    <div class="col-md-8">
+      <form-group>
+        <label class="control-label">Ship Address:</label>
+        <input type="text" class="form-control" ng-model="order.shipAddress"
+               uib-tooltip="validator = [ required ]"
+               validator="[required]" validator-group="v1">
+      </form-group>
+    </div>
+
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <portlet class="box blue">
+        <portlet-title>
+          <portlet-caption>
+            <i class="fa fa-edit"></i>Order Items
+          </portlet-caption>
+          <portlet-actions>
+            <button id="sample_editable_1_new" class="btn btn-sm btn-default" ng-click="addItem()">
+              Add New <i class="fa fa-plus"></i>
+            </button>
+          </portlet-actions>
+        </portlet-title>
+        <portlet-body>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+              <tr>
+                <th> Product Name</th>
+                <th> Unit Price</th>
+                <th> Quantity</th>
+                <th class="centered">Actions</th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr ng-repeat="item in order.orderDetails" ng-class="{danger: item.isDeleted}">
+
+                <td>{{item.productName}}</td>
+                <td>{{item.unitPrice}}</td>
+                <td ng-if="!item.isEditing">{{item.quantity}}</td>
+                <td ng-if="item.isEditing">
+                  <form-group>
+                    <input type="text" class="form-control input-sm"
+                           validator="[number, required]"
+                           ng-model="item.quantity">
+                  </form-group>
+                </td>
+
+                <td class="centered">
+
+                  <button ng-if="(!item.isDeleted)&&(!item.isEditing)" class="btn default btn-xs purple-stripe"
+                          ng-click="editItem(item)">
+                    <i class="fa fa-edit"></i>Edit
+                  </button>
+
+                  <button ng-if="(!item.isDeleted)&&(item.isEditing)" class="btn default btn-xs purple-stripe"
+                          ng-click="saveItem(item)">
+                    <i class="fa fa-edit"></i>Save
+                  </button>
+
+                  <button ng-if="(!item.isDeleted)&&(!item.isEditing)" class="btn default btn-xs red-stripe"
+                          ng-click="deleteItem(item)">
+                    <i class="fa fa-trash-o"></i> Delete
+                  </button>
+
+                  <button ng-if="item.isDeleted" class="btn default btn-xs red-stripe" ng-click="restoreItem(item)">
+                    <i class="fa fa-undo"></i> Restore
+                  </button>
+
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </portlet-body>
+      </portlet>
+    </div>
+  </div>
+
+</form-body>
+<form-actions class="right">
+  <button type="button" class="btn green" ng-click="actions.submit()">Save</button>
+  <button type="button" class="btn default" ng-click="actions.cancel()">Cancel</button>
+</form-actions>
+</form>
+</div>
