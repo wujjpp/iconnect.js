@@ -82,7 +82,32 @@ function OrderDetailContainer(){
     {"detailId":"73","orderId":"23","productId":"73","quantity":3},
     {"detailId":"74","orderId":"23","productId":"74","quantity":4},
     {"detailId":"75","orderId":"24","productId":"75","quantity":5},
-    {"detailId":"76","orderId":"24","productId":"76","quantity":6}
+    {"detailId":"76","orderId":"24","productId":"76","quantity":6},
+    {"detailId":"77","orderId":"2","productId":"52","quantity":23},
+    {"detailId":"78","orderId":"2","productId":"53","quantity":24},
+    {"detailId":"79","orderId":"2","productId":"54","quantity":25},
+    {"detailId":"80","orderId":"2","productId":"55","quantity":26},
+    {"detailId":"81","orderId":"2","productId":"56","quantity":27},
+    {"detailId":"82","orderId":"2","productId":"57","quantity":28},
+    {"detailId":"83","orderId":"2","productId":"58","quantity":29},
+    {"detailId":"84","orderId":"2","productId":"59","quantity":1},
+    {"detailId":"85","orderId":"2","productId":"60","quantity":2},
+    {"detailId":"86","orderId":"2","productId":"61","quantity":3},
+    {"detailId":"87","orderId":"2","productId":"62","quantity":4},
+    {"detailId":"88","orderId":"2","productId":"63","quantity":5},
+    {"detailId":"89","orderId":"2","productId":"64","quantity":6},
+    {"detailId":"90","orderId":"2","productId":"65","quantity":7},
+    {"detailId":"91","orderId":"2","productId":"66","quantity":8},
+    {"detailId":"92","orderId":"2","productId":"67","quantity":9},
+    {"detailId":"93","orderId":"2","productId":"68","quantity":10},
+    {"detailId":"94","orderId":"2","productId":"69","quantity":11},
+    {"detailId":"95","orderId":"2","productId":"70","quantity":12},
+    {"detailId":"96","orderId":"2","productId":"71","quantity":1},
+    {"detailId":"97","orderId":"2","productId":"72","quantity":2},
+    {"detailId":"98","orderId":"2","productId":"73","quantity":3},
+    {"detailId":"99","orderId":"2","productId":"74","quantity":4},
+    {"detailId":"100","orderId":"2","productId":"75","quantity":5},
+    {"detailId":"101","orderId":"2","productId":"76","quantity":6}
   ];
 
   this.getOrderDetails = function(orderId){

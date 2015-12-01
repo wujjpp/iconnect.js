@@ -146,6 +146,7 @@
             <table class="table">
               <thead>
               <tr>
+                <th>#</th>
                 <th> Product Name</th>
                 <th> Unit Price</th>
                 <th> Quantity</th>
@@ -154,8 +155,8 @@
               </thead>
               <tbody>
 
-              <tr ng-repeat="item in order.orderDetails" ng-class="{danger: item.isDeleted}">
-
+              <tr ng-repeat="item in pagedItems" ng-class="{danger: item.isDeleted}">
+                <td>{{ pagination.size*(pagination.page - 1) + $index + 1}}</td>
                 <td>{{item.productName}}</td>
                 <td>{{item.unitPrice}}</td>
                 <td ng-if="!item.isEditing">{{item.quantity}}</td>
@@ -193,6 +194,20 @@
               </tbody>
             </table>
 
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <uib-pagination
+                total-items="pagination.count"
+                ng-model="pagination.page"
+                max-size="pagination.max"
+                items-per-page="pagination.size"
+                ng-change="onPageChanged()"
+                rotate="false"
+                class="pagination-sm pull-right"
+                boundary-links="true"></uib-pagination>
+            </div>
           </div>
         </portlet-body>
       </portlet>
