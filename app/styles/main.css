@@ -57,3 +57,21 @@ overflow-y:scroll;
 .page-footer-fixed .page-footer{
   z-index: 995;
 }
+
+/*override dataTable's sorter style, using FontAwesome*/
+table.dataTable thead .sorting:after {
+  opacity: 0.5;
+  font-family: "FontAwesome";
+  content: "\f0dc";
+  /* sort */
+}
+table.dataTable thead .sorting_asc:after {
+  font-family: "FontAwesome";
+  content: "\f0de";
+  /* sort-by-attributes */
+}
+table.dataTable thead .sorting_desc:after {
+  font-family: "FontAwesome";
+  content: "\f0dd";
+  /* sort-by-attributes-alt */
+}
