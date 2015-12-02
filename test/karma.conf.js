@@ -51,6 +51,8 @@ module.exports = function(config) {
       'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/toastr/toastr.js',
       'bower_components/bootbox.js/bootbox.js',
+      'bower_components/datatables.net/js/jquery.dataTables.js',
+      'bower_components/datatables.net-bs/js/dataTables.bootstrap.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",

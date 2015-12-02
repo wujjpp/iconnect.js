@@ -33,6 +33,7 @@ angular.module('iconnectApp')
       }
 
 
+      //for processing child record's pagination
       var loadItems = function () {
         //calc start and end index
         var start = ($scope.pagination.page - 1) * $scope.pagination.size;
@@ -49,7 +50,6 @@ angular.module('iconnectApp')
         //setup total count
         $scope.pagination.count = $scope.order.orderDetails.length;
       };
-
 
       $scope.onPageChanged = function () {
         loadItems();

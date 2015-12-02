@@ -36,6 +36,25 @@ module.exports = function () {
         });
       }
 
+      //sorting
+      if (req.query.sortKey && req.query.sortOrder) {
+        filtered = _.sortBy(filtered, req.query.sortKey);
+
+        if (req.query.sortOrder === 'desc') {
+          filtered = _.chain(filtered)
+            .map(function (o, n) {
+              o.rowIndex = n;
+              return o;
+            })
+            .sortBy(function (o) {
+              return 0 - o.rowIndex;
+            })
+            .map(function (o) {
+              return _.omit(o, 'rowIndex')
+            }).value();
+        }
+      }
+
       var returnedData = {
         count: filtered.length
       };
@@ -51,7 +70,7 @@ module.exports = function () {
     });
 
     router.get('/api/orders/:orderId', function (req, res) {
-      var order = _.chain(orderContainer.getOrders()).find(function(o){
+      var order = _.chain(orderContainer.getOrders()).find(function (o) {
         return o.orderId == req.params.orderId
       }).value();
       res.end(JSON.stringify(order));

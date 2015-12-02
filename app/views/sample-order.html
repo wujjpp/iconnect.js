@@ -56,14 +56,14 @@
 
     <portlet-body>
       <div class="table-responsive">
-        <table class="table">
+        <table class="table dataTable">
           <thead>
           <tr>
             <th> #</th>
-            <th> Company</th>
-            <th> Contact</th>
-            <th> Employee</th>
-            <th> Order Date</th>
+            <th sorter ng-model="sorter" sort-key="companyName" on-sort-changed="onSortChanged"> Company</th>
+            <th sorter ng-model="sorter" sort-key="contactName" on-sort-changed="onSortChanged"> Contact</th>
+            <th sorter ng-model="sorter" sort-key="employeeName" on-sort-changed="onSortChanged"> Employee</th>
+            <th sorter ng-model="sorter" sort-key="orderDate" on-sort-changed="onSortChanged"> Order Date</th>
 
             <th>Freight</th>
             <th>Item Count</th>
