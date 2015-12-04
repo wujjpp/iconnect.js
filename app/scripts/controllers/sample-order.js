@@ -8,8 +8,8 @@
  * Controller of the iconnectApp
  */
 angular.module('iconnectApp')
-  .controller('OrderCtrl', ['$scope', '$state', 'paginator', 'controllerStateManager', 'OrderService',
-    function ($scope, $state, paginator, controllerStateManager, orderService) {
+  .controller('OrderCtrl', ['$scope', '$state', 'paginator','sorter', 'controllerStateManager', 'OrderService',
+    function ($scope, $state, paginator, sorter, controllerStateManager, orderService) {
 
       $state.current.data = {
         pageTitle: 'Maintain Order',
@@ -19,10 +19,9 @@ angular.module('iconnectApp')
 
       $scope.searchCriteria = controllerStateManager.get('searchCriteria', {companyName: '', contactName: ''});
       $scope.pagination = controllerStateManager.get('pagination', paginator.create());
-      $scope.sorter = controllerStateManager.get('sorter', {sortKey:'', sortOrder:''});
+      $scope.sorter = controllerStateManager.get('sorter', sorter.create());
 
-      $scope.onSortChanged = function(val){
-        $scope.sorter = val;
+      $scope.onSortChanged = function() {
         loadData();
       };
 
@@ -42,7 +41,8 @@ angular.module('iconnectApp')
       //for search action
       $scope.search = function () {
         //reset page index to 1
-        $scope.pagination.page = 1;
+        $scope.pagination.reset();
+        $scope.sorter.reset();
         loadData();
       };
 
@@ -52,6 +52,8 @@ angular.module('iconnectApp')
           companyName: '',
           contactName: ''
         };
+        $scope.pagination.reset();
+        $scope.sorter.reset();
         loadData();
       };
 
@@ -63,7 +65,7 @@ angular.module('iconnectApp')
 
         _.extend(params, $scope.pagination.getPagerParams());
 
-        _.extend(params, $scope.sorter);
+        _.extend(params, $scope.sorter.getSorterParams());
 
         //using controllerStateManager to saving state
         controllerStateManager.set('pagination', $scope.pagination);

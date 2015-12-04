@@ -27,6 +27,11 @@ angular.module('iconnectApp')
       };
     };
 
+    Paginator.prototype.reset = function(){
+      this.page = 1;
+      this.count = 0;
+    };
+
     return {
       create: function () {
         return new Paginator();

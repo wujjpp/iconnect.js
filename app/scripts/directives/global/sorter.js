@@ -1,5 +1,9 @@
 'use strict';
 
+/*
+ * Author: Wu Jian Ping
+ * */
+
 /**
  * @ngdoc directive
  * @name iconnectApp.directive:sorter
@@ -12,8 +16,7 @@ angular.module('iconnectApp')
       restrict: 'A',
       require: 'ngModel',
       scope: {
-        'ngModel': '=',
-        'onSortChanged': '='
+        'ngModel': '='
       },
       link: function postLink(scope, element, attrs, ctrl) {
         var sortKey = attrs.sortKey;
@@ -34,9 +37,6 @@ angular.module('iconnectApp')
           }
           else {
             element.addClass("sorting");
-          }
-          if (ctrl.$modelValue.sortKey === sortKey) {
-            scope.onSortChanged(ctrl.$modelValue);
           }
         };
         setupClass();

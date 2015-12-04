@@ -60,10 +60,10 @@
           <thead>
           <tr>
             <th> #</th>
-            <th sorter ng-model="sorter" sort-key="companyName" on-sort-changed="onSortChanged"> Company</th>
-            <th sorter ng-model="sorter" sort-key="contactName" on-sort-changed="onSortChanged"> Contact</th>
-            <th sorter ng-model="sorter" sort-key="employeeName" on-sort-changed="onSortChanged"> Employee</th>
-            <th sorter ng-model="sorter" sort-key="orderDate" on-sort-changed="onSortChanged"> Order Date</th>
+            <th sorter ng-model="sorter.state" sort-key="companyName" ng-change="onSortChanged()"> Company</th>
+            <th sorter ng-model="sorter.state" sort-key="contactName" ng-change="onSortChanged()"> Contact</th>
+            <th sorter ng-model="sorter.state" sort-key="employeeName" ng-change="onSortChanged()"> Employee</th>
+            <th sorter ng-model="sorter.state" sort-key="orderDate" ng-change="onSortChanged()"> Order Date</th>
 
             <th>Freight</th>
             <th>Item Count</th>
