@@ -117,12 +117,16 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
       controller: 'SubRouterMainCtrl'
     }).state('authorised.subrouters.page1',{
       url:'/page1',
-      templateUrl: 'views/sub-routers/page-1.html',
-      controller: 'SubRouterPage1Ctrl'
+      templateUrl: 'views/sample-product.html',
+      controller: 'ProductCtrl'
+      //templateUrl: 'views/sub-routers/page-1.html',
+      //controller: 'SubRouterPage1Ctrl'
     }).state('authorised.subrouters.page2',{
       url:'/page2',
-      templateUrl: 'views/sub-routers/page-2.html',
-      controller: 'SubRouterPage2Ctrl'
+      templateUrl: 'views/todo.html',
+      controller: 'ToDoCtrl'
+      //templateUrl: 'views/sub-routers/page-2.html',
+      //controller: 'SubRouterPage2Ctrl'
     }).state('authorised.subrouters.page3',{
       url:'/page3',
       templateUrl: 'views/sub-routers/page-3.html',
