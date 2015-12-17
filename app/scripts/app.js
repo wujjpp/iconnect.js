@@ -81,18 +81,16 @@ angular.module('iconnectApp').run([
       }
     });
 
-    /*
-    $rootScope.$on('$stateChangeSuccess', function (event, to, toParams, from, fromParams) {
-      console.log('to:');
-      console.log(to);
-      console.log('toParams');
-      console.log(toParams);
-      console.log('from');
-      console.log(from);
-      console.log('fromParams');
-      console.log(fromParams);
-    });
-*/
+    $state.previous = function(){
+      $state.transitionTo($state.previousState.state, $state.previousState.stateParams);
+    };
 
+    $rootScope.$on('$stateChangeSuccess', function (event, to, toParams, from, fromParams) {
+      $state.previousState = {
+        state: from,
+        stateParams: fromParams
+      };
+      console.log($state.previousState);
+    });
   }]);
 

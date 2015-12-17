@@ -133,19 +133,19 @@ angular.module('iconnectApp')
             if (order.orderId) {//edit
               orderService.update(order.orderId, order);
               toastr.success('Order updated successfully!', 'Successfully');
-              $state.go('authorised.order');
+              $state.previous();
             }
             else {//create
               orderService.create(order);
               toastr.success('Order created successfully!', 'Successfully');
-              $state.go('authorised.order');
+              $state.previous();
             }
           }).error(function () {
             //notification
           });
         },
         cancel: function () {
-          $state.go('authorised.order');
+          $state.previous();
         }
       };
     }]);

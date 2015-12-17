@@ -68,20 +68,20 @@ angular.module('iconnectApp')
               $scope.customer.groups = getSelectedGroups();
               customerService.update($scope.customer.id, $scope.customer);
               toastr.success('Customer updated successfully!', 'Successfully');
-              $state.go('authorised.customer');
+              $state.previous();
             }
             else {//create
               $scope.customer.groups = getSelectedGroups();
               customerService.create($scope.customer);
               toastr.success('Customer created successfully!', 'Successfully');
-              $state.go('authorised.customer');
+              $state.previous();
             }
           }).error(function () {
             //notification
           });
         },
         cancel: function () {
-          $state.go('authorised.customer');
+          $state.previous();
         }
       };
 
