@@ -21,8 +21,5 @@ angular.module('iconnectApp')
     $scope.foo = function(){
       bootbox.alert("Function callback in SubRouterMainCtrl");
     };
-
-    console.log('SubRouterMainCtrl was created');
-
   }]);
 

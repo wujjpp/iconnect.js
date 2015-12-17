@@ -90,7 +90,6 @@ angular.module('iconnectApp').run([
         state: from,
         stateParams: fromParams
       };
-      console.log($state.previousState);
     });
   }]);
 
