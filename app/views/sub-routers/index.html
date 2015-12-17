@@ -1,0 +1,38 @@
+<div class="col-md-12">
+  <portlet class="bordered light">
+    <portlet-title>
+      <portlet-caption class="font-green-sharp">
+        <i class="icon-settings font-green-sharp"></i>
+        <span class="caption-subject bold uppercase">Main page container</span>
+        <span class="caption-helper">Please notice the main page generated time will not be changed if switch between sub pages</span>
+      </portlet-caption>
+    </portlet-title>
+    <portlet-body>
+        <span class="label label-success">Main Page generated at: {{generatedTime}}</span>
+        <button class="btn btn-primary" ng-click="foo()">Call foo method in SubRouterMainCtrl</button>
+    </portlet-body>
+  </portlet>
+</div>
+
+<div class="col-md-12">
+  <portlet class="bordered light">
+    <portlet-title>
+      <portlet-caption class="font-green-sharp">
+        <i class="icon-settings font-green-sharp"></i>
+        <span class="caption-subject bold uppercase">Sub page container</span>
+        <span class="caption-helper">Please notice sub page generated time and content</span>
+      </portlet-caption>
+
+      <portlet-actions>
+        <a class="btn default btn-xs red-stripe ng-scope" ui-sref="authorised.subrouters.page1"> Page1 </a>
+        <a class="btn default btn-xs red-stripe ng-scope"  ui-sref="authorised.subrouters.page2"> Page2 </a>
+        <a class="btn default btn-xs red-stripe ng-scope" ui-sref="authorised.subrouters.page3"> Page3 </a>
+      </portlet-actions>
+    </portlet-title>
+    <portlet-body>
+      <div ui-view>
+      </div>
+    </portlet-body>
+  </portlet>
+</div>
+

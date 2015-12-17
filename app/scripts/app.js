@@ -92,7 +92,7 @@ angular.module('iconnectApp').run([
       console.log('fromParams');
       console.log(fromParams);
     });
-    */
+*/
 
   }]);
 

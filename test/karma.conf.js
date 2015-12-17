@@ -22,7 +22,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       // bower:js
-      'bower_components/jquery/jquery.js',
+      'bower_components/jquery/dist/jquery.js',
       'bower_components/ExplorerCanvas/excanvas.js',
       'bower_components/respond/dest/respond.src.js',
       'bower_components/underscore/underscore.js',

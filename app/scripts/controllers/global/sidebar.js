@@ -69,6 +69,11 @@ angular.module('iconnectApp')
             url: '#/authorised/order',
             icon: 'icon-puzzle',
             name: 'Orders'
+          },
+          {
+            url: '#/authorised/subrouters',
+            icon: 'icon-puzzle',
+            name: 'Sub Router Sample'
           }]
       },
       {

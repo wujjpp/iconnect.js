@@ -109,6 +109,24 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
       url: "/order/edit/:orderId",
       templateUrl: 'views/sample-order-editor.html',
       controller: 'OrderEditorCtrl'
+    })
+
+    .state('authorised.subrouters',{
+      url:'/subrouters',
+      templateUrl: 'views/sub-routers/index.html',
+      controller: 'SubRouterMainCtrl'
+    }).state('authorised.subrouters.page1',{
+      url:'/page1',
+      templateUrl: 'views/sub-routers/page-1.html',
+      controller: 'SubRouterPage1Ctrl'
+    }).state('authorised.subrouters.page2',{
+      url:'/page2',
+      templateUrl: 'views/sub-routers/page-2.html',
+      controller: 'SubRouterPage2Ctrl'
+    }).state('authorised.subrouters.page3',{
+      url:'/page3',
+      templateUrl: 'views/sub-routers/page-3.html',
+      controller: 'SubRouterPage3Ctrl'
     });
 
 }]);
