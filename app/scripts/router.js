@@ -133,7 +133,15 @@ angular.module('iconnectApp').config(['$stateProvider', '$urlRouterProvider', '$
       url:'/page3',
       templateUrl: 'views/sub-routers/page-3.html',
       controller: 'SubRouterPage3Ctrl'
-    });
+    }).state('authorised.subrouters.create', {
+      url:'/create',
+      templateUrl: 'views/sub-routers/page-3-create.html',
+      controller: 'SubRouterPage3CreateCtrl'
+    }).state('authorised.subrouters.page3.create', {
+      url:'/create',
+      templateUrl: 'views/sub-routers/page-3-create.html',
+      controller: 'SubRouterPage3CreateCtrl'
+    });;
 
 }]);
 
