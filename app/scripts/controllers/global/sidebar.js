@@ -78,31 +78,208 @@ angular.module('iconnectApp')
       },
       {
         icon: 'icon-wrench',
-        name: 'jQuery Plugins',
+        name: 'Performance Testing',
         subMenus: [
+          //local data
           {
-            url: '#/form-tools',
+            url: '#/authorised/static-local-records-100',
             icon: 'icon-puzzle',
-            name: 'Form Tools'
+            name: 'local-100-static'
           },
           {
-            url: '#/pickers',
-            icon: 'icon-calender',
-            name: 'Date & Time Pickers'
+            url: '#/authorised/dynamic-local-records-100',
+            icon: 'icon-puzzle',
+            name: 'local-100-dynamic'
           },
           {
-            url: '#/dropdowns',
-            icon: 'icon-refresh',
-            name: 'Custom Dropdowns'
+            url: '#/authorised/static-local-records-200',
+            icon: 'icon-puzzle',
+            name: 'local-200-static'
           },
           {
-            url: '#/tree',
-            icon: 'icon-share',
-            name: 'Tree View'
+            url: '#/authorised/dynamic-local-records-200',
+            icon: 'icon-puzzle',
+            name: 'local-200-dynamic'
           },
           {
-            url: '#/tree2',
-            name: 'Test default icon'
+            url: '#/authorised/static-local-records-500',
+            icon: 'icon-puzzle',
+            name: 'local-500-static'
+          },
+          {
+            url: '#/authorised/dynamic-local-records-500',
+            icon: 'icon-puzzle',
+            name: 'local-500-dynamic'
+          },
+          {
+            url: '#/authorised/static-local-records-1000',
+            icon: 'icon-puzzle',
+            name: 'local-1000-static'
+          },
+          {
+            url: '#/authorised/dynamic-local-records-1000',
+            icon: 'icon-puzzle',
+            name: 'local-1000-dynamic'
+          },
+          {
+            url: '#/authorised/static-local-records-1500',
+            icon: 'icon-puzzle',
+            name: 'local-1500-static'
+          },
+          {
+            url: '#/authorised/dynamic-local-records-1500',
+            icon: 'icon-puzzle',
+            name: 'local-1500-dynamic'
+          },
+          {
+            url: '#/authorised/static-local-records-2000',
+            icon: 'icon-puzzle',
+            name: 'local-2000-static'
+          },
+          {
+            url: '#/authorised/static-local-records-3000',
+            icon: 'icon-puzzle',
+            name: 'local-3000-static'
+          },
+          {
+            url: '#/authorised/static-local-records-4000',
+            icon: 'icon-puzzle',
+            name: 'local-4000-static'
+          },
+          {
+            url: '#/authorised/static-local-records-5000',
+            icon: 'icon-puzzle',
+            name: 'local-5000-static'
+          },
+
+
+          //remote data
+          {
+            url: '#/authorised/static-remote-records-100',
+            icon: 'icon-puzzle',
+            name: 'remote-100-static'
+          },
+          {
+            url: '#/authorised/dynamic-remote-records-100',
+            icon: 'icon-puzzle',
+            name: 'remote-100-dynamic'
+          },
+          {
+            url: '#/authorised/static-remote-records-200',
+            icon: 'icon-puzzle',
+            name: 'remote-200-static'
+          },
+          {
+            url: '#/authorised/dynamic-remote-records-200',
+            icon: 'icon-puzzle',
+            name: 'remote-200-dynamic'
+          },
+          {
+            url: '#/authorised/static-remote-records-500',
+            icon: 'icon-puzzle',
+            name: 'remote-500-static'
+          },
+          {
+            url: '#/authorised/dynamic-remote-records-500',
+            icon: 'icon-puzzle',
+            name: 'remote-500-dynamic'
+          },
+          {
+            url: '#/authorised/static-remote-records-1000',
+            icon: 'icon-puzzle',
+            name: 'remote-1000-static'
+          },
+          {
+            url: '#/authorised/dynamic-remote-records-1000',
+            icon: 'icon-puzzle',
+            name: 'remote-1000-dynamic'
+          },
+          {
+            url: '#/authorised/static-remote-records-1500',
+            icon: 'icon-puzzle',
+            name: 'remote-1500-static'
+          },
+          {
+            url: '#/authorised/dynamic-remote-records-1500',
+            icon: 'icon-puzzle',
+            name: 'remote-1500-dynamic'
+          },
+          {
+            url: '#/authorised/static-remote-records-2000',
+            icon: 'icon-puzzle',
+            name: 'remote-2000-static'
+          },
+          {
+            url: '#/authorised/static-remote-records-3000',
+            icon: 'icon-puzzle',
+            name: 'remote-3000-static'
+          },
+          {
+            url: '#/authorised/static-remote-records-4000',
+            icon: 'icon-puzzle',
+            name: 'remote-4000-static'
+          },
+          {
+            url: '#/authorised/static-remote-records-5000',
+            icon: 'icon-puzzle',
+            name: 'remote-5000-static'
+          },
+          {
+            url: '#/authorised/static-remote-records-10000',
+            icon: 'icon-puzzle',
+            name: 'remote-10000-static'
+          },
+
+          //browser DOM rendering capacity
+          {
+            url: '#/authorised/browser-capacity-1500',
+            icon: 'icon-puzzle',
+            name: 'browser-capacity-1500'
+          },
+          {
+            url: '#/authorised/browser-capacity-2000',
+            icon: 'icon-puzzle',
+            name: 'browser-capacity-2000'
+          },
+          {
+            url: '#/authorised/browser-capacity-3000',
+            icon: 'icon-puzzle',
+            name: 'browser-capacity-3000'
+          },
+          {
+            url: '#/authorised/browser-capacity-4000',
+            icon: 'icon-puzzle',
+            name: 'browser-capacity-4000'
+          },
+          {
+            url: '#/authorised/browser-capacity-5000',
+            icon: 'icon-puzzle',
+            name: 'browser-capacity-5000'
+          },
+          {
+            url: '#/authorised/browser-capacity-10000',
+            icon: 'icon-puzzle',
+            name: 'browser-capacity-10000'
+          },
+          {
+            url: '#/authorised/data-from-local/500',
+            icon: 'icon-puzzle',
+            name: 'data-from-local-?'
+          },
+          {
+            url: '#/authorised/data-from-remote/500',
+            icon: 'icon-puzzle',
+            name: 'data-from-remote-?'
+          },
+          {
+            url: '#/authorised/test-dropdown-performance',
+            icon: 'icon-puzzle',
+            name: '10 dropdowns'
+          },
+          {
+            url: '#/authorised/test-dropdown-performance-normal',
+            icon: 'icon-puzzle',
+            name: '10 normal dropdowns'
           }
         ]
       },
