@@ -1,0 +1,49 @@
+<div class="col-md-12">
+  <portlet class="bordered light">
+    <portlet-title>
+      <portlet-caption class="font-green-sharp">
+        <i class="icon-settings font-green-sharp"></i>
+        <span class="caption-subject bold uppercase">Performance</span>
+        <span class="caption-helper">{{description}}</span>
+      </portlet-caption>
+    </portlet-title>
+    <portlet-body>
+      <div class="table-responsive">
+        <table class="table dataTable">
+          <thead>
+          <tr>
+            <th> #</th>
+            <th> Column 1</th>
+            <th> Column 2</th>
+            <th> Column 3</th>
+            <th> Column 4</th>
+            <th> Column 5</th>
+            <th> Column 6</th>
+            <th> Column 7</th>
+            <th> Column 8</th>
+            <th> Column 9</th>
+            <th> Column 10</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="item in data">
+            <td>{{ $index + 1}}</td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+            <td><input type="text" class="form-control"></td>
+          </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+    </portlet-body>
+</div>
