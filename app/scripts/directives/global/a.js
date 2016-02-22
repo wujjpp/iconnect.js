@@ -7,6 +7,8 @@
  * # a
  */
 // Handle global LINK click
+
+
 angular.module('iconnectApp').directive('a', function() {
   return {
     restrict: 'E',

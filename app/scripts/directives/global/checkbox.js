@@ -63,6 +63,7 @@ angular.module('iconnectApp').directive('checkbox', ['$injector', function ($inj
         }
       }, true);
 
+
       //Handle label click event, so that we can check or uncheck via this label
       element.find('label').bind("click", function () {
         if (attrs.ngDisabled) {

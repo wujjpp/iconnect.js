@@ -8,7 +8,7 @@
  * Controller of the iconnectApp
  */
 angular.module('iconnectApp')
-  .controller('SampleTestPerformanceDropdownCtrl', ['$state', '$scope', '$http', function ($state, $scope, $http) {
+  .controller('SampleTestPerformanceDropdownCtrl', ['$state', '$scope', function ($state, $scope) {
     $state.current.data = {
       pageTitle: 'Performance test',
       title: 'Performance test',

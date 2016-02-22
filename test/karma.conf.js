@@ -25,7 +25,6 @@ module.exports = function(config) {
       'bower_components/jquery/dist/jquery.js',
       'bower_components/ExplorerCanvas/excanvas.js',
       'bower_components/respond/dest/respond.src.js',
-      'bower_components/underscore/underscore.js',
       'bower_components/jquery-migrate/jquery-migrate.min.js',
       'bower_components/bootstrap/dist/js/bootstrap.js',
       'bower_components/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js',
@@ -53,6 +52,7 @@ module.exports = function(config) {
       'bower_components/bootbox.js/bootbox.js',
       'bower_components/datatables.net/js/jquery.dataTables.js',
       'bower_components/datatables.net-bs/js/dataTables.bootstrap.js',
+      'bower_components/underscore/underscore.js',
       // endbower
       "app/scripts/**/*.js",
       "test/mock/**/*.js",
